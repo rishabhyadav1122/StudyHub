@@ -23,10 +23,7 @@ const app = express();
 // Middleware
 const cors = require('cors');
 
-app.use(cors({
-  origin: true,
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json()); // Parse JSON bodies
 app.use(cookieParser()); // Parse cookies
 

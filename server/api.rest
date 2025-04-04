@@ -15,7 +15,7 @@ GET http://localhost:5000/api/auth/verifyEmail?token=eyJhbGciOiJIUzI1NiIsInR5cCI
 
 
 ### Login User
-POST http://localhost:5000/api/auth/login
+POST https://study-hub-omega.vercel.app/api/auth/login
 Content-Type: application/json
 
 {
