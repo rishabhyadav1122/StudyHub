@@ -1,7 +1,6 @@
 const dotenv = require('dotenv');
 dotenv.config(); // Load environment variables from .env file
 const express = require('express');
-const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const connectDB = require('./config/db'); // Adjust the path as needed
 const authRoutes = require("./routes/authRoutes.js")
@@ -22,7 +21,12 @@ require("../cronJobs.js");
 const app = express();
 
 // Middleware
-app.use(cors({ origin: 'https://study-hub-mq4a.vercel.app', credentials: true })); // Adjust based on frontend URL
+const cors = require('cors');
+
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
 app.use(express.json()); // Parse JSON bodies
 app.use(cookieParser()); // Parse cookies
 
