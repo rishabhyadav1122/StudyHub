@@ -11,7 +11,7 @@ export const Navbar = () => {
     <nav className="bg-gray-800 text-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/dashboard" className="text-2xl ml-10 font-bold text-purple-400">
+        <Link to="/" className="text-2xl ml-10 font-bold text-purple-400">
           StudyPoint
         </Link>
 
@@ -31,14 +31,14 @@ export const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/dashboard" className="hover:text-purple-400">
+            <Link to="/" className="hover:text-purple-400">
               Dashboard
             </Link>
           </li>
           {isLoggedIn ? (
             <li>
-              <Link to="/profile" className="hover:text-purple-400">
-                Profile
+              <Link to="/students" className="hover:text-purple-400">
+                Students
               </Link>
             </li>
           ) : (
@@ -72,7 +72,7 @@ export const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/dashboard"
+                to="/"
                 className="block text-gray-300 hover:text-purple-400"
               >
                 Dashboard
@@ -81,10 +81,10 @@ export const Navbar = () => {
             {isLoggedIn ? (
               <li>
                 <Link
-                  to="/profile"
+                  to="/students"
                   className="block text-gray-300 hover:text-purple-400"
                 >
-                  Profile
+                  Students
                 </Link>
               </li>
             ) : (

@@ -13,7 +13,7 @@ export const SeatProvider = ({ children }) => {
   // Fetch all seats
   const fetchSeats = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/seats/getAllSeats", {
+      const response = await fetch("https://study-hub-omega.vercel.app/api/seats/getAllSeats", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -25,7 +25,7 @@ export const SeatProvider = ({ children }) => {
 
   const getAvailableSeats = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/seats/getAvailableSeats", {
+      const response = await fetch("https://study-hub-omega.vercel.app/api/seats/getAvailableSeats", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -38,7 +38,7 @@ export const SeatProvider = ({ children }) => {
   // Fetch all students
   const fetchStudents = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/students/getAllStudents", {
+      const response = await fetch("https://study-hub-omega.vercel.app/api/students/getAllStudents", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -51,7 +51,7 @@ export const SeatProvider = ({ children }) => {
   // Fetch student by ID
   const getStudentById = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/students/${id}`, {
+      const response = await fetch(`https://study-hub-omega.vercel.app/api/students/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       return await response.json();
@@ -63,7 +63,7 @@ export const SeatProvider = ({ children }) => {
   // Add a new student
   const addStudent = async (studentData) => {
     try {
-      const response = await fetch("http://localhost:5000/api/students/addStudent", {
+      const response = await fetch("https://study-hub-omega.vercel.app/api/students/addStudent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -83,7 +83,7 @@ export const SeatProvider = ({ children }) => {
   // Remove a student and free seat
   const removeStudent = async (studentId) => {
     try {
-      await fetch(`http://localhost:5000/api/students/${studentId}/removeStudent`, {
+      await fetch(`https://study-hub-omega.vercel.app/api/students/${studentId}/removeStudent`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -97,7 +97,7 @@ export const SeatProvider = ({ children }) => {
   // Submit fees
   const submitFees = async (studentId, amount) => {
     try {
-      await fetch(`http://localhost:5000/api/students/${studentId}/submitFees`, {
+      await fetch(`https://study-hub-omega.vercel.app/api/students/${studentId}/submitFees`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -112,7 +112,7 @@ export const SeatProvider = ({ children }) => {
 
   const updateConfig = async (configData) => {
     try {
-      await fetch("http://localhost:5000/api/seats/updateConfig", {
+      await fetch("https://study-hub-omega.vercel.app/api/seats/updateConfig", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -131,7 +131,7 @@ export const SeatProvider = ({ children }) => {
       const auth_token = localStorage.getItem("token");
 
       console.log(totalSeats, feePerMonth)
-      const response = await fetch("http://localhost:5000/api/seats/initializeHub", {
+      const response = await fetch("https://study-hub-omega.vercel.app/api/seats/initializeHub", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -148,7 +148,7 @@ export const SeatProvider = ({ children }) => {
   // Fetch all transactions
   const fetchTransactions = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/students/getAllTransactions", {
+      const response = await fetch("https://study-hub-omega.vercel.app/api/students/getAllTransactions", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -161,7 +161,7 @@ export const SeatProvider = ({ children }) => {
   // Get student's transactions
   const getStudentTransactions = async (studentId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/students/${studentId}/getStudentTransactions`, {
+      const response = await fetch(`https://study-hub-omega.vercel.app/api/students/${studentId}/getStudentTransactions`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       return await response.json();
@@ -175,7 +175,7 @@ export const SeatProvider = ({ children }) => {
   // Fetch dashboard stats
   const fetchDashboardStats = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/dashboard/stats", {
+      const response = await fetch("https://study-hub-omega.vercel.app/api/dashboard/stats", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
