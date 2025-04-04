@@ -1,0 +1,141 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZWZkZDU1ODYyYWI4YjZhMjZmMGY3MSIsImlhdCI6MTc0Mzc3MzAyNCwiZXhwIjoxNzQ2MzY1MDI0fQ.RZ8eLtBdSJuBJELzIg2KBy7CgWgCa1UKM4GCjCjpPY4
+@reset_token = 3f55c4861049ed97109e7a027dae9039379181ca6098d12e0661271989059c7d
+### Register User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Rishabh Yadav",
+  "email": "@gmail.com",
+  "password": "rishabh123"
+}
+
+### Verify Email
+GET http://localhost:5000/api/auth/verifyEmail?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZWQ5ZTA3NTY0NWI1OGZmZWM3ZjkyYSIsImlhdCI6MTc0MzYyNTczNSwiZXhwIjoxNzQzNzEyMTM1fQ.7dk-84lS2StKsLHNgxPuaSfyrGnAI7hMKMoAUC224tc
+
+
+### Login User
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "yrishabh325@gmail.com",
+  "password": "yadav123"
+}
+
+### Google Authentication (Redirect to Google Login)
+GET http://localhost:5000/api/auth/google
+
+### Google Authentication Callback
+GET http://localhost:5000/api/auth/google/callback
+
+### Logout User
+GET http://localhost:5000/api/auth/logout
+
+
+### Forgot Password (Request Reset Link)
+POST http://localhost:5000/api/auth/forgotPassword
+Content-Type: application/json
+
+{
+  "email": "yrishabh325@gmail.com"
+}
+
+
+### Reset Password (Submit New Password)
+POST http://localhost:5000/api/auth/resetPassword/{{reset_token}}
+Content-Type: application/json
+
+{
+  "newPassword": "yadav123"
+}
+
+
+### Check Google Authentication Status (After login)
+GET http://localhost:5000/api/auth/status
+
+### Protected Route Example (Replace with actual protected routes later)
+GET http://localhost:5000/api/protected
+Authorization: Bearer {{token}}
+
+### Initialize Hub (Only Once)
+POST http://localhost:5000/api/seats/initializeHub
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "totalSeats": 50,
+  "feePerMonth": 1000
+}
+
+### Get Hub Configuration (Seats & Fees)
+GET http://localhost:5000/api/seats/getConfig
+Authorization: Bearer {{token}}
+
+### Get All Seats
+GET http://localhost:5000/api/seats/getAllSeats
+Authorization: Bearer {{token}}
+
+### Update Total Seats & Fees
+PUT http://localhost:5000/api/seats/updateConfig
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "totalSeats": 0,
+  "feePerMonth": 1200
+}
+
+### Add a new student
+POST http://localhost:5000/api/students/addStudent
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "seatId": "S003",
+  "name": "Gyan Kumar",
+  "gender": "Male",
+  "mobile": "9876543210",
+  "address": "123 Street, City"
+}
+
+### Get all students
+GET http://localhost:5000/api/auth/userdata
+Authorization: Bearer {{token}}
+
+### Get a student by ID
+GET http://localhost:5000/api/students/S001
+Authorization: Bearer {{token}}
+
+### Remove a student and free the seat
+DELETE http://localhost:5000/api/students/S003/removeStudent
+Authorization: Bearer {{token}}
+
+### Get all available seats
+GET http://localhost:5000/api/seats/getAvailableSeats
+Authorization: Bearer {{token}}
+
+### Record a fee payment (Add Transaction)
+PUT http://localhost:5000/api/students/S001/submitFees
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "amount": 500
+}
+
+### Get all  fee transactions
+GET http://localhost:5000/api/students/getAllTransactions
+Authorization: Bearer {{token}}
+
+### Get a Student's   fee transactions
+GET http://localhost:5000/api/students/S021/getStudentTransactions
+Authorization: Bearer {{token}}
+
+### Update due fees manually (for testing)
+POST http://localhost:5000/api/students/update-due-fees
+Authorization: Bearer {{token}}
+
+### Get Dashboard Stats
+GET http://localhost:5000/api/dashboard/stats
+Authorization: Bearer {{token}}

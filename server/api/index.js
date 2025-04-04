@@ -7,15 +7,15 @@ const connectDB = require('./config/db'); // Adjust the path as needed
 const authRoutes = require("./routes/authRoutes.js")
 const passport = require("passport")
 const session = require("express-session")
-require("./config/passport.js")
-const seatRoutes = require("./routes/seatRoutes.js");
-const studentRoutes = require("./routes/studentRoute.js");
-const dashboardRoutes = require("./routes/dashboardRoutes.js")
+require("../config/passport.js")
+const seatRoutes = require("../routes/seatRoutes.js");
+const studentRoutes = require("../routes/studentRoute.js");
+const dashboardRoutes = require("../routes/dashboardRoutes.js")
 
 
 
 // Import the cron job
-require("./cronJobs.js");
+require("../cronJobs.js");
 
 
 // Initialize Express app
