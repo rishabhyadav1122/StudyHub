@@ -34,7 +34,7 @@ const registerUser = async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
 
-    await sendEmail(user.email, "Verify Your Email", `Click to verify: http://localhost:5173/verifyEmail?token=${token}`);
+    await sendEmail(user.email, "Verify Your Email", `Click to verify: https://study-hub-mq4a.vercel.app/verifyEmail?token=${token}`);
 
     res.status(201).json({ message: "User registered. Check email for verification.", success: true , token:`${token}`  });
   } catch (error) {
@@ -115,7 +115,7 @@ const forgotPassword =  async (req, res) => {
     await user.save();
 
     // ✅ 4. Send password reset email
-    const resetLink = `http://localhost:5173/resetPassword/${resetToken}`;
+    const resetLink = `https://study-hub-mq4a.vercel.app/resetPassword/${resetToken}`;
 
     // Configure Nodemailer
     const transporter = nodemailer.createTransport({
