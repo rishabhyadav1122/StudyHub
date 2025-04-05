@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu ,MoreVertical  } from "lucide-react";
 import { useAuth } from "../contexts/authContext"; // Adjust the import path as needed
 
 export const Navbar = () => {
@@ -20,7 +20,7 @@ export const Navbar = () => {
           className="lg:hidden text-gray-300 hover:text-white"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <Menu size={28} />
+          <MoreVertical size={28} />
         </button>
 
         {/* Desktop Menu */}
