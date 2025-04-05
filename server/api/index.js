@@ -3,7 +3,7 @@ dotenv.config(); // Load environment variables from .env file
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const connectDB = require('../config/db'); // Adjust the path as needed
-const authRoutes = require("./routes/authRoutes.js")
+const authRoutes = require("../routes/authRoutes.js")
 const passport = require("passport")
 const session = require("express-session")
 require("../config/passport.js")
